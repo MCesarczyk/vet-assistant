@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DOGS } from '../mock-dogs';
 import { Dog } from '../dog';
+import { DogDetailComponent } from '../dog-detail/dog-detail.component';
 
 @Component({
   selector: 'app-dogs',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DogDetailComponent],
   templateUrl: './dogs.component.html',
   styleUrl: './dogs.component.scss'
 })
