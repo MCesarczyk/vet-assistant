@@ -16,10 +16,10 @@ export class DogsComponent {
   dogs: Dog[] = [];
   selectedDog?: Dog;
 
-  constructor(private dogService: DogService) {}
+  constructor(private dogService: DogService) { }
 
   getDogs(): void {
-    this.dogs = this.dogService.getDogs();
+    this.dogService.getDogs().subscribe(dogs => (this.dogs = dogs));
   }
 
   onSelect(dog: Dog): void {
