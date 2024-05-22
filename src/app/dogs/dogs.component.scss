@@ -7,47 +7,35 @@
 }
 
 .dogs li {
-  display: flex;
-}
-
-.dogs button {
-  flex: 1;
-  cursor: pointer;
   position: relative;
-  left: 0;
-  background-color: #eee;
-  margin: 0.5em;
-  padding: 0;
-  border-radius: 4px;
-  display: flex;
-  align-items: stretch;
-  height: 1.8em;
+  cursor: pointer;
 }
 
-.dogs button:hover {
+.dogs li:hover {
+  left: .1em;
+}
+
+.dogs a {
+  color: #333;
+  text-decoration: none;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
+.dogs a:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
-  left: 0.1em;
 }
 
-.dogs button:active {
+.dogs a:active {
   background-color: #525252;
   color: #fafafa;
-}
-
-.dogs button.selected {
-  background-color: black;
-  color: white;
-}
-
-.dogs button.selected:hover {
-  background-color: #505050;
-  color: white;
-}
-
-.dogs button.selected:active {
-  background-color: black;
-  color: white;
 }
 
 .dogs .badge {
@@ -56,11 +44,13 @@
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
   background-color: #405061;
-  line-height: 0.2em;
-  margin-right: 0.8em;
-  border-radius: 1px 0 0 1px;
-}
-
-.dogs .name {
-  align-self: center;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
 }

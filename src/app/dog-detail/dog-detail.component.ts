@@ -27,4 +27,8 @@ export class DogDetailComponent {
     this.dogService.getDog(id)
       .subscribe(dog => this.dog = dog);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

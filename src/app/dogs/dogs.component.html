@@ -2,8 +2,7 @@
 <ul class="dogs">
   <li *ngFor="let dog of dogs">
     <a routerLink="/dog/{{dog.id}}">
-      <span class="badge">{{dog.id}}</span>
-      <span class="name">{{dog.name}}</span>
+      <span class="badge">{{dog.id}}</span>{{dog.name}}
     </a>
   </li>
 </ul>
