@@ -16,4 +16,10 @@ export class DogService {
     this.messageService.add('DogService: dogs fetched successfully!');
     return dogs;
   }
+
+  getDog(id: number): Observable<Dog> {
+    const dog = DOGS.find(dog => dog.id === id)!;
+    this.messageService.add(`DogService: fetched dog id=${id}`);
+    return of(dog);
+  }
 }

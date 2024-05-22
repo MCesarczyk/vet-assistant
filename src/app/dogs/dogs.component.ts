@@ -10,9 +10,8 @@ import { MessageService } from '../message.service';
 })
 export class DogsComponent {
   dogs: Dog[] = [];
-  selectedDog?: Dog;
 
-  constructor(private dogService: DogService, private messageService: MessageService) { }
+  constructor(private dogService: DogService) { }
 
   ngOnInit() {
     this.getDogs();
@@ -20,10 +19,5 @@ export class DogsComponent {
 
   getDogs(): void {
     this.dogService.getDogs().subscribe(dogs => (this.dogs = dogs));
-  }
-
-  onSelect(dog: Dog): void {
-    this.selectedDog = dog;
-    this.messageService.add(`DogsComponent: Selected dog id=${dog.id}`);
   }
 }
