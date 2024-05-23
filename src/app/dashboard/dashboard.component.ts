@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Dog } from '../dog';
 import { DogService } from '../dog.service';
 
@@ -7,12 +7,12 @@ import { DogService } from '../dog.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   dogs: Dog[] = [];
 
   constructor(private dogService: DogService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getDogs();
   }
 

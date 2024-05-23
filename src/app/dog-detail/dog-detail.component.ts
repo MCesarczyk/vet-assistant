@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { DogService } from '../dog.service';
@@ -9,8 +9,8 @@ import { Dog } from '../dog';
   templateUrl: './dog-detail.component.html',
   styleUrl: './dog-detail.component.scss'
 })
-export class DogDetailComponent {
-  @Input() dog?: Dog;
+export class DogDetailComponent implements OnInit {
+  dog: Dog | undefined;
 
   constructor(
     private route: ActivatedRoute,
