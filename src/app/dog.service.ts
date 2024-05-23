@@ -32,6 +32,13 @@ export class DogService {
     };
   }
 
+  createDog(dog: Dog): Observable<Dog> {
+    return this.http.post<Dog>(this.dogsUrl, dog, this.httpOptions).pipe(
+      tap((newDog: Dog) => this.log(`added dog w/ id=${newDog.id}`)),
+      catchError(this.handleError<Dog>('createDog'))
+    );
+  }
+
   getDogs(): Observable<Dog[]> {
     return this.http.get<Dog[]>(this.dogsUrl)
       .pipe(
