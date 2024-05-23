@@ -1,13 +1,5 @@
 <h2>My dogs</h2>
 
-<div>
-  <label for="new-dog">Dog name: </label>
-  <input id="new-dog" #newDogName placeholder="name">
-  <button type="button" class="add-button" (click)="add(newDogName.value); newDogName.value=''">
-    Add new dog
-  </button>
-</div>
-
 <ul class="dogs">
   <li *ngFor="let dog of dogs">
     <a routerLink="/dog/{{dog.id}}">

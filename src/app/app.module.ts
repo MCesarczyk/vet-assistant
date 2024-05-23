@@ -12,9 +12,10 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DogSearchComponent } from './dog-search/dog-search.component';
+import { DogFormComponent } from './dog-form/dog-form.component';
 
 @NgModule({
-  declarations: [AppComponent, DogsComponent, DogDetailComponent, DogSearchComponent, MessagesComponent, DashboardComponent],
+  declarations: [AppComponent, DogsComponent, DogDetailComponent, DogSearchComponent, DogFormComponent, MessagesComponent, DashboardComponent],
   imports: [
     CommonModule, BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
 
