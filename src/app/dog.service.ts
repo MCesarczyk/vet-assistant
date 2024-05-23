@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Dog } from './dog';
 import { MessageService } from './message.service';
 
@@ -9,6 +9,9 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class DogService {
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private http: HttpClient,
@@ -42,6 +45,13 @@ export class DogService {
     return this.http.get<Dog>(url).pipe(
       tap(_ => this.log(`fetched dog id=${id}`)),
       catchError(this.handleError<Dog>(`getDog id=${id}`))
+    );
+  }
+
+  updateDog(dog: Dog): Observable<any> {
+    return this.http.put(this.dogsUrl, dog, this.httpOptions).pipe(
+      tap(_ => this.log(`updated dog id=${dog.id}`)),
+      catchError(this.handleError<any>('updateDog'))
     );
   }
 }

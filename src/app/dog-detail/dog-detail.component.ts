@@ -28,6 +28,13 @@ export class DogDetailComponent {
       .subscribe(dog => this.dog = dog);
   }
 
+  save(): void {
+    if (this.dog) {
+      this.dogService.updateDog(this.dog)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }
