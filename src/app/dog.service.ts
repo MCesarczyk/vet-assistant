@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Dog } from './dog';
 import { MessageService } from './message.service';
 
@@ -20,13 +21,27 @@ export class DogService {
 
   private dogsUrl = 'api/dogs';
 
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
   getDogs(): Observable<Dog[]> {
-    this.messageService.add('DogService: dogs fetched successfully!');
-    return this.http.get<Dog[]>(this.dogsUrl);
+    return this.http.get<Dog[]>(this.dogsUrl)
+      .pipe(
+        tap(_ => this.log('fetched dogs')),
+        catchError(this.handleError<Dog[]>('getDogs', []))
+      );
   }
 
   getDog(id: number): Observable<Dog> {
-    this.messageService.add(`DogService: fetched dog id=${id}`);
-    return this.http.get<Dog>(`${this.dogsUrl}/${id}`);
+    const url = `${this.dogsUrl}/${id}`;
+    return this.http.get<Dog>(url).pipe(
+      tap(_ => this.log(`fetched dog id=${id}`)),
+      catchError(this.handleError<Dog>(`getDog id=${id}`))
+    );
   }
 }
