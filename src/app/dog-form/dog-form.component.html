@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="power">Dog breed</label>
+  <select class="form-control" id="power" required>
+    <option *ngFor="let breed of breeds" [value]="breed">{{breed}}</option>
+  </select>
+  <input type="number" class="form-control" id="age">
+</div>
