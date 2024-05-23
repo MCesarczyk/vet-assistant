@@ -61,4 +61,14 @@ export class DogService {
       catchError(this.handleError<any>('updateDog'))
     );
   }
+
+  deleteDog(dog: Dog | number): Observable<Dog> {
+    const id = typeof dog === 'number' ? dog : dog.id;
+    const url = `${this.dogsUrl}/${id}`;
+
+    return this.http.delete<Dog>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted dog id=${id}`)),
+      catchError(this.handleError<Dog>('deleteDog'))
+    );
+  }
 }

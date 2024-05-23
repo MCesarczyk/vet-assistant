@@ -30,4 +30,9 @@ export class DogsComponent {
       this.dogs.push(dog);
     });
   }
+
+  delete(dog: Dog): void {
+    this.dogs = this.dogs.filter(d => d !== dog);
+    this.dogService.deleteDog(dog).subscribe();
+  }
 }
