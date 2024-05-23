@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Dog } from './dog';
 import { MessageService } from './message.service';
 
@@ -47,11 +47,36 @@ export class DogService {
       );
   }
 
+  getDogNo404<Data>(id: number): Observable<Dog> {
+    const url = `${this.dogsUrl}/?id=${id}`;
+    return this.http.get<Dog[]>(url)
+      .pipe(
+        map(dogs => dogs[0]),
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} dog id=${id}`);
+        }),
+        catchError(this.handleError<Dog>(`getDog id=${id}`))
+      );
+  }
+
   getDog(id: number): Observable<Dog> {
     const url = `${this.dogsUrl}/${id}`;
     return this.http.get<Dog>(url).pipe(
       tap(_ => this.log(`fetched dog id=${id}`)),
       catchError(this.handleError<Dog>(`getDog id=${id}`))
+    );
+  }
+
+  searchDogs(term: string): Observable<Dog[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Dog[]>(`${this.dogsUrl}/?name=${term}`).pipe(
+      tap(x => x.length
+        ? this.log(`found dogs matching "${term}"`)
+        : this.log(`no dogs matching "${term}"`)),
+      catchError(this.handleError<Dog[]>('searchDogs', []))
     );
   }
 
