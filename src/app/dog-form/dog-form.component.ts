@@ -15,4 +15,7 @@ export class DogFormComponent {
 
   onSubmit() { this.submitted = true; }
 
+  crateNewDog() {
+    this.model = new Dog(2, '', this.breeds[0], 0);
+  }
 }
