@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-8">
       <header class="bg-slate-900 text-white py-4 px-8 flex flex-col md:flex-row gap-8">
         <h1 class="text-3xl font-bold">{{title}}</h1>
         <nav class="flex items-center">
@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
           </ul>
         </nav>
       </header>
-      <main class="px-8">
+      <main class="px-2 md:px-8 flex flex-col gap-4 md:gap-8">
         <router-outlet></router-outlet>
         <app-messages></app-messages>
         <app-dog-form></app-dog-form>
