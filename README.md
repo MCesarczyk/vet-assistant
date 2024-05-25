@@ -1,5 +1,24 @@
 # VetAssistant
 
+Features:
+## Dashboard with top dogs list (most recently viewed dogs feature planned):
+![Screenshot from 2024-05-26 01-23-23](https://github.com/MCesarczyk/vet-assistant/assets/83251458/2af4ecb8-339e-4e85-8911-36f4ca696826)
+
+## Dogs list:
+![Screenshot from 2024-05-26 01-24-08](https://github.com/MCesarczyk/vet-assistant/assets/83251458/2891661e-fef4-4371-9d0f-8a0a8fa1da0b)
+
+## Chosen dog details view:
+![Screenshot from 2024-05-26 01-25-48](https://github.com/MCesarczyk/vet-assistant/assets/83251458/3d291e57-9d6c-4267-9750-ff8a98f54020)
+
+## Editing dog details:
+![Screenshot from 2024-05-26 01-26-11](https://github.com/MCesarczyk/vet-assistant/assets/83251458/65410cd8-4e44-4f22-9f5a-351b9aa23371)
+
+## Searching for dog by name:
+![Screenshot from 2024-05-26 01-26-40](https://github.com/MCesarczyk/vet-assistant/assets/83251458/f1035e62-0e99-41f2-89b4-9b618cf4c59a)
+
+## Adding new dog (mock):
+![Screenshot from 2024-05-26 01-27-10](https://github.com/MCesarczyk/vet-assistant/assets/83251458/fe98ff79-3802-415c-b1ff-e6f6594abe60)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
 
 ## Development server
