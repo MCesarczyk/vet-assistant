@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        libre: ['"Libre Baskerville"', ...defaultTheme.fontFamily.sans],
+      }
+    },
   },
   plugins: [],
 }
