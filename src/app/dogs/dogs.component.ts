@@ -4,8 +4,18 @@ import { DogService } from '../dog.service';
 
 @Component({
   selector: 'app-dogs',
-  templateUrl: './dogs.component.html',
-  styleUrl: './dogs.component.scss'
+  template: `
+    <h2 class="text-3xl text-red-700 mb-4">My dogs</h2>
+    <ul class="flex flex-col gap-2 max-w-96">
+      <li *ngFor="let dog of dogs" class="cursor-pointer hover:translate-x-1 flex justify-between bg-white rounded-xl shadow">
+        <a routerLink="/dog/{{dog.id}}" class="grow flex">
+          <div class="w-16 rounded-tl-xl rounded-bl-xl bg-gray-600 text-white text-xl grid place-items-center">{{dog.id}}</div>
+          <div class="p-4">{{dog.name}}</div>
+        </a>
+        <button type="button" class="w-16 bg-transparent grid place-items-center text-xl hover:text-red-600 hover:font-bold" (click)="delete(dog)">x</button>
+      </li>
+    </ul>
+  `,
 })
 export class DogsComponent implements OnInit {
   dogs: Dog[] = [];
