@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
       <main class="px-2 md:px-8 flex flex-col gap-4 md:gap-8">
         <router-outlet></router-outlet>
         <app-messages></app-messages>
-        <button *ngIf="!isFormVisible" (click)="showForm()" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow-xl">Add new dog</button>
+        <button *ngIf="!isFormVisible" (click)="showForm()" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow-xl md:w-48">Add new dog</button>
         <app-dog-form *ngIf="isFormVisible" (onFormFinish)="hideForm()"></app-dog-form>
       </main>
     </div>

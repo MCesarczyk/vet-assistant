@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -17,7 +17,7 @@ import { DogFormComponent } from './dog-form/dog-form.component';
 @NgModule({
   declarations: [AppComponent, DogsComponent, DogDetailComponent, DogSearchComponent, DogFormComponent, MessagesComponent, DashboardComponent],
   imports: [
-    CommonModule, BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
+    CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule,
 
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
